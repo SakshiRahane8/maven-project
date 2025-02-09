@@ -5,7 +5,7 @@ stages
 {
   // CI part
   stage ('scm checkout')
-   {steps { git 'https://github.com/kumargaurav039/maven-project.git' }}
+   {steps { git 'https://github.com/SakshiRahane8/maven-project.git' }}
 
   stage ('validate the code')
   {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JAVA_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
