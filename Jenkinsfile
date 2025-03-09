@@ -71,6 +71,8 @@
 //scp user_name/ path    IP address/user_name/path
 */
 
+//cicd using docker
+
 pipeline {
   agent any
   stages {
@@ -105,7 +107,7 @@ pipeline {
     }
     stage('create docker image') {
       steps {
-        sh 'docker build -t sakshirahane8/mavendocker:latest .'
+        sh 'docker build -t sakshirahane8/cicdmavendocker:latest .'
       }
     }
     stage('push docker image to dockerhub') {
@@ -113,7 +115,7 @@ pipeline {
         
         withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
             
-                sh 'docker push sakshirahane8/mavendocker:latest'
+                sh 'docker push sakshirahane8/cicdmavendocker:latest'
             
         }
       }
